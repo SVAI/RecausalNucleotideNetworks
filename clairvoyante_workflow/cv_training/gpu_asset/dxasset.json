@@ -1,0 +1,10 @@
+{
+  "name": "gpu_asset",
+  "title": "gpu asset",
+  "description": "gpu asset",
+  "version": "0.0.1",
+  "distribution": "Ubuntu",
+  "release": "16.04",
+  "excludeResource": [  "/var/lib/lxcfs*", "/proc*", "/sys*" ]
+}
+

@@ -1,0 +1,62 @@
+{
+  "name": "cv_training",
+  "title": "clairvoyante training model",
+  "summary": "clairvoyant training model",
+  "dxapi": "1.0.0",
+  "version": "0.0.1",
+  "runSpec": {
+    "interpreter": "bash",
+    "file": "src/train.sh",
+    "systemRequirements": {
+      "*": {
+        "instanceType": "mem3_ssd1_gpu_x8"
+      }
+    },
+    "distribution": "Ubuntu",
+    "release": "16.04"
+  },
+  "inputSpec": [
+    {
+      "name": "tensor_combine_bin",
+      "label": "training tensors",
+      "help": "Clairvoyante training tensor",
+      "class": "file",
+      "patterns": ["*"]
+    },
+    {
+      "name": "model_prefix",
+      "label": "prefix for the trained model",
+      "help": "Clairvoyante trained model check point",
+      "class": "string",
+      "default": "cv_model",
+      "optional": true
+    }
+  ],
+  "outputSpec": [
+    {
+      "name": "models",
+      "label": "trained models check point tar ball",
+      "help": "Clairvoyante trained models",
+      "class": "file",
+      "patterns": ["*.tar.gz"]
+    },
+    {
+      "name": "training_log",
+      "label": "training log",
+      "help": "Clairvoyante training log",
+      "class": "file",
+      "patterns": ["*.log"]
+    }
+  ],
+  "access": {
+    "project": "CONTRIBUTE",
+    "network": [
+      "*"
+    ]
+  },
+  "regionalOptions": {
+    "aws:us-east-1": { "assetDepends": [{"id": "record-FFzVvKQ0vP4z9P673b5yJ1Jq"}]}
+  },
+  "categories": ["hidden_app"],
+  "openSource": true
+}
